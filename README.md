@@ -1,5 +1,7 @@
 ---
+
 **简述**
+
 >   数据实时同步中间件（阿里canal到kafka）！
 
  本项目是打通canal、kafka的桥梁；  
@@ -8,6 +10,7 @@
 
 
 改写自:[syncClient](https://github.com/sasou/syncClient)
+
 
 ---
 
