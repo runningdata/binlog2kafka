@@ -92,12 +92,13 @@ public class One {
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws InterruptedException {
         while (true) {
             try {
                 run();
             } catch (Exception e) {
                 System.out.println("run error");
+                Thread.sleep(3000);
                 e.printStackTrace();
             }
         }
