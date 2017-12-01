@@ -109,6 +109,7 @@ public class One {
         int no = 0;
         RecordMetadata metadata = null;
         boolean ret = true;
+        long tt = new Date().getTime();
         for (Entry entry : entrys) {
             if (entry.getEntryType() == EntryType.TRANSACTIONBEGIN || entry.getEntryType() == EntryType.TRANSACTIONEND) {
                 continue;
@@ -130,6 +131,7 @@ public class One {
             head.put("db", entry.getHeader().getSchemaName());
             head.put("table", entry.getHeader().getTableName());
             head.put("type", eventType);
+            head.put("ctime", tt);
             data.put("head", head);
 //	        topic = entry.getHeader().getSchemaName() + "_" + entry.getHeader().getTableName();
             no = (int) entry.getHeader().getLogfileOffset();
