@@ -5,7 +5,7 @@ RUN  apk add --no-cache bash git && git clone https://github.com/ruoyuchen/binlo
 
 FROM java:openjdk-8-jre-alpine
 MAINTAINER  Will Chen <willcup@163.com>
-RUN    apk add --no-cache bash && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN    apk add --no-cache bash curl tree tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 COPY /SysConfig.properties_template .
 COPY --from=jar_builder /binlog2kafka/target/will_sync-1.0.2.jar /will_sync-1.0.2.jar
 COPY /start.sh .
