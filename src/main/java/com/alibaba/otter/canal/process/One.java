@@ -26,7 +26,7 @@ public class One {
         Properties props = new Properties();
         props.put("bootstrap.servers", GetProperties.servers);
         props.put("client.id", "oneProducer");
-        props.put("key.serializer", "org.apache.kafka.common.serialization.IntegerSerializer");
+        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         System.out.println("props is " + props);
         int batchSize = 1000;
