@@ -15,7 +15,7 @@ import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 public class One {
-    private static KafkaProducer<Integer, String> producer;
+    private static KafkaProducer<String, String> producer;
     private static CanalConnector connector = null;
     private static int debug = 0;
 
@@ -146,12 +146,13 @@ public class One {
                 }
                 String text = JSON.toJSONString(data);
                 try {
-                    metadata = producer.send(new ProducerRecord<>(topic, no, text)).get();
+                    String key = head.get("db") + "___" + head.get("table") + "___" + no;
+                    metadata = producer.send(new ProducerRecord<>(topic, key, text)).get();
                     if (metadata == null) {
                         ret = false;
                     }
                     if (debug > 0) {
-                        System.out.println("Sent message: (" + topic + "," + no + ", " + text + ")");
+                        System.out.println("Sent message: (" + topic + "," + key + ", " + text + ")");
                     }
                 } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();
