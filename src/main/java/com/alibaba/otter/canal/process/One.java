@@ -132,6 +132,7 @@ public class One {
             head.put("table", entry.getHeader().getTableName());
             head.put("type", eventType);
             head.put("ctime", tt);
+            head.put("exec_time", entry.getHeader().getExecuteTime());
             data.put("head", head);
 //	        topic = entry.getHeader().getSchemaName() + "_" + entry.getHeader().getTableName();
             no = (int) entry.getHeader().getLogfileOffset();
